@@ -1,0 +1,17 @@
+body {
+    background-image: url(Board_Game/public/assets/Cloud-Atlas-One-Universe-at-a-Time.jpg);
+    background-size: contain;   
+    font-family: 'Times New Roman', Times, serif;
+    font-size: small;
+}
+.h1{
+    align-self: center;
+}
+.gameboard{
+    align-items: center;
+    width: 750px;
+    height: 750px;
+}
+.spinnerbutton{
+    align-items: flex-end;
+}
