@@ -65,6 +65,8 @@ function setup() {
   blue = new Draggable(50, 110, 25, 25);
   green = new Draggable(50, 170, 25, 25);
   yellow = new Draggable(50, 230, 25, 25);
+
+  
   
   //Listen for "positionUpdate" msg from the server
   socket.on('positionUpdate', function (data) {
@@ -111,6 +113,11 @@ function mouseReleased() {
   yellow.released();
 
   // socket.emit('position', positionUpdate);
+}
+function doubleClicked() {
+  draw {
+    circle (mouseX, mouseY)
+  }
 }
 let positionUpdate = {
   curColor: "red",
