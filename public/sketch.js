@@ -1,52 +1,49 @@
-//Open and connect socket
-let socket = io();
+// //Open and connect socket
+// let socket = io();
 
-//Listen for confirmation of connection
-socket.on('connect', function () {
-  console.log("Connected");
-});
+// //Listen for confirmation of connection
+// socket.on('connect', function () {
+//   console.log("Connected");
+// });
 
-//Listen for messages named 'data' from the server
-socket.on('data', function (obj) {
-  console.log(obj);
-  redPos(obj);
-  bluePos(obj);
-  greenPos(obj);
-  yellowPos(obj);
-});
+// //Listen for messages named 'data' from the server
+// socket.on('data', function (obj) {
+//   console.log(obj);
+//   redPos(obj);
+//   bluePos(obj);
+//   greenPos(obj);
+//   yellowPos(obj);
+// });
 
 //loads JSON data from genre list
-window.addEventListener('load', function () {
-  fetch('chancecards.json')
+window.addEventListener("load", function() {
+  fetch("chancecards.json")
+    .then(response => response.json())
+    .then(data => {});
+
+  //"Spinner" button - Random number from 1-6
+  let spinnerButton = document.getElementById("spinnerButton");
+  spinnerButton.addEventListener("click", function() {
+    console.log(Math.floor(Math.random() * 6) + 1);
+    function randomNumber(min, max) {
+      return Math.floor(Math.random() * 6) + 1;
+    }
+  });
+  //"Chance Card" button - returns random result from chancecards.json
+  let chanceButton = document.getElementById("chanceButton");
+  chanceButton.addEventListener("click", function() {
+    fetch("chancecards.json")
       .then(response => response.json())
       .then(data => {
-          console.log(data);
-          let chanceArray = data.chancecards;
-          let randomNumber = Math.floor(Math.random() * chanceArray.length)
-          let nameElement = document.getElementById('chancecard');
-          nameElement.innerHTML = chanceArray[randomNumber];
-          currentCard = chanceArray[randomNumber]
-      })
-      .catch(error => {
-          console.log(error)
-      })
-  //"Spinner" button - Random number from 1-6    
-  let spinnerbutton = document.getElementById('spinnerbutton');
-  spinnerbutton.addEventListener('click', function () {
-      console.log("spinnerbutton was clicked");
-      function randomNumber(min, max) {
-        return Math.floor(Math.random() * 6) + 1;
-      }
-   
-      
-  })
-  //"Chance Card" button - returns random result from chancecards.json
-  let chancebutton = document.getElementById('chancebutton');
-  chancebutton.addEventListener('click', function () {
-      console.log(currentCard);
- 
-  })
-})
+        let chanceArray = data.cards;
+        let randomNumber = Math.floor(Math.random() * chanceArray.length);
+        let nameElement = document.getElementById("currentCard");
+        nameElement.innerHTML = chanceArray[randomNumber];
+        let currentCard = chanceArray[randomNumber];
+        console.log(currentCard);
+      });
+  });
+});
 function preload() {
   img = loadImage('assets/board1.jpg');
 }
@@ -114,11 +111,11 @@ function mouseReleased() {
 
   // socket.emit('position', positionUpdate);
 }
-function doubleClicked() {
-  draw {
-    circle (mouseX, mouseY)
-  }
-}
+// function doubleClicked() {
+//   draw {
+//     circle (mouseX, mouseY)
+//   }
+// }
 let positionUpdate = {
   curColor: "red",
   curX: red.x,

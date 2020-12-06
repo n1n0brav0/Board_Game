@@ -13,4 +13,3 @@ There are eight chances to acquire particles, not counting collisions.
 •	Entanglements – spaces sharing crosshair icons are quantum entanglements, meaning a player can move diagonally between them, to an inner or outer ring. Collisions between players in entanglements will not result in particle loss if the player with less mass (collected particles) moves to an outer ring.
 
 •	Chance Cards – Players who land on spaces with equations must take a new card from the Chance deck and follow the instructions on the card
-# Board_Game

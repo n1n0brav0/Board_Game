@@ -18,24 +18,31 @@
 
 <body>
   <h1>PARTICLE .</h1>
-  <h2>Basic Rules</h2> 
+  <h2>Basic Rules</h2>
   <p>Players – 2 to 6</p>
-    
-    <p>Objective – Reach the singularity in the center of the board with all seven particles collected. Players collect a particle every time they complete a full cycle around the board, marked by the atom icon.</p>
-    
-    <p>There are eight chances to acquire particles, not counting collisions.</p>
-    
-    <p>•	Collisions – if two players land on the same space, the one with more mass (collected particles) gets to take a particle from the other player. If the other player has no particles collected, they must start over at the beginning. If neither player has any particles collected, they must both start over at the beginning.</p>
-    
-    •	Entanglements – spaces sharing crosshair icons are quantum entanglements, meaning a player can move diagonally between them, to an inner or outer ring. Collisions between players in entanglements will not result in particle loss if the player with less mass (collected particles) moves to an outer ring.</p>
-  
+
+  <p>Objective – Reach the singularity in the center of the board with all seven particles collected. Players collect a
+    particle every time they complete a full cycle around the board, marked by the atom icon.</p>
+
+  <p>There are eight chances to acquire particles, not counting collisions.</p>
+
+  <p>• Collisions – if two players land on the same space, the one with more mass (collected particles) gets to take a
+    particle from the other player. If the other player has no particles collected, they must start over at the
+    beginning. If neither player has any particles collected, they must both start over at the beginning.</p>
+
+  <p>• Entanglements – spaces sharing crosshair icons are quantum entanglements, meaning a player can move diagonally
+  between them, to an inner or outer ring. Collisions between players in entanglements will not result in particle loss
+  if the player with less mass (collected particles) moves to an outer ring.</p>
+
   <div class="gameboard"></div>
-  <iframe src="https://pickerwheel.com/emb?choices=1,2,3,4,5,6" width="50%" height="200px" scrolling="no" frameborder="0"></iframe>
-  <iframe src="https://wheelofnames.com/view/wpc-4y5/" width="30%" height="200px" scrolling="yes" frameborder="0"></iframe>
-  <div class="spinnerbutton"><button>Spinner</button></div>
-  <p class="spinnumber" id="spinnumber"> </p>
-  <div class="chancebutton"><button>Chance Card</button></div>
-  <p class="chancecard" id="currentCard" ></p>
+  <iframe src="https://pickerwheel.com/emb?choices=1,2,3,4,5,6" width="50%" height="200px" scrolling="no"
+    frameborder="0"></iframe>
+  <iframe src="https://wheelofnames.com/view/wpc-4y5/" width="30%" height="200px" scrolling="yes"
+    frameborder="0"></iframe>
+    <div id="spinnerButton"><button>Spinner</button></div>
+    <p class="spinNumber"> <span id="spinNumber"></span></p>
+    <div id="chanceButton"><button>Chance Card</button></div>
+    <p class="chanceCard"> <span id="currentCard"></span></p>
 </body>
 
 </html>
