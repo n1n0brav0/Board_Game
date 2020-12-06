@@ -24,26 +24,29 @@ window.addEventListener("load", function() {
   //"Spinner" button - Random number from 1-6
   let spinnerButton = document.getElementById("spinnerButton");
   spinnerButton.addEventListener("click", function() {
-    console.log(Math.floor(Math.random() * 6) + 1);
+    console.log("spinnerButton was clicked");
     function randomNumber(min, max) {
       return Math.floor(Math.random() * 6) + 1;
     }
   });
+
   //"Chance Card" button - returns random result from chancecards.json
   let chanceButton = document.getElementById("chanceButton");
   chanceButton.addEventListener("click", function() {
     fetch("chancecards.json")
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         let chanceArray = data.cards;
         let randomNumber = Math.floor(Math.random() * chanceArray.length);
         let nameElement = document.getElementById("currentCard");
         nameElement.innerHTML = chanceArray[randomNumber];
         let currentCard = chanceArray[randomNumber];
-        console.log(currentCard);
       });
   });
 });
+
+
 function preload() {
   img = loadImage('assets/board1.jpg');
 }
