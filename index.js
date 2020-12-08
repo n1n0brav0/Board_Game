@@ -18,35 +18,60 @@ let io = require("socket.io").listen(server);
 io.sockets.on("connection", function(socket) {
   console.log("We have a new client: " + socket.id);
 
-  //Event - Listen for the "data" msg
-  socket.on("data", function(data) {
-    // io.sockets.emit("data", data);
-    console.log("Received: 'data' " + data);
+  //Listen for a message named 'msg' from this client
+  socket.on("msg", function(data) {
+    //Data can be numbers, strings, objects
+    console.log("Received a 'msg' event");
+    console.log(data);
 
-    //Send the data to all other clients, not including this one
-    socket.broadcast.emit("data", data);
+    //Send a response to all clients, including this one
+    io.sockets.emit("msg", data);
   });
 
-  // //Listen for a message named 'data' from this client
-  // socket.on('data', function (data) {
-  // });
+  //Event - Listen for the "spinData" msg
+  socket.on("spinData", function(data) {
+    // io.sockets.emit("spinData", data);
+    //Send the data to all other clients, not including this one
+    socket.broadcast.emit("spinData", data);
+  });
 
-  // //Event - Listen for the "redPosition" msg
-  // socket.on('position', function (data) {
-  //     io.sockets.emit('redPos', data);
-  // });
+  //Event - Listen for the "cardData" msg
+  socket.on("cardData", function(data) {
+    // io.sockets.emit("cardData", data);
+    //Send the data to all other clients, not including this one
+    socket.broadcast.emit("cardData", data);
+  });
+
+  //Event - Listen for the "redData" msg
+  socket.on("redData", function(data) {
+    // io.sockets.emit("redData", data);
+    //Send the data to all other clients, not including this one
+    socket.broadcast.emit("redData", data);
+  });
+
+  //Event - Listen for the "blueData" msg
+  socket.on("blueData", function(data) {
+    // io.sockets.emit("blueData", data);
+    //Send the data to all other clients, not including this one
+    socket.broadcast.emit("blueData", data);
+  });
+
+  //Event - Listen for the "greenData" msg
+  socket.on("greenData", function(data) {
+    // io.sockets.emit("greenData", data);
+    //Send the data to all other clients, not including this one
+    socket.broadcast.emit("greenData", data);
+  });
+
+  //Event - Listen for the "yellowData" msg
+  socket.on("yellowData", function(data) {
+    // io.sockets.emit("yellowData", data);
+    //Send the data to all other clients, not including this one
+    socket.broadcast.emit("yellowData", data);
+  });
 
   //Listen for this client to disconnect
   socket.on("disconnect", function() {
     console.log("A client has disconnected: " + socket.id);
   });
 });
-
-// // JOINING MESSAGE DATA
-// let messageData = {
-//     "messages": messages[levelData],
-//     "score1": "Great, together you have cleared",
-//     "score2": scores,
-//     "score3": "balls, you are getting closer to the deep!",
-// };
-// socket.emit('levelMsg', messageData); // send the data only to this client
