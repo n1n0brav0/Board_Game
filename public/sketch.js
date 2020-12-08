@@ -200,8 +200,4 @@ function mouseReleased() {
     socket.emit("yellowData", yellowPos);
   }
 }
-// function doubleClicked() {
-//   draw {
-//     circle (mouseX, mouseY)
-//   }
-// }
+
