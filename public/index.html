@@ -1,66 +1,90 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+    <title>PARTICLE.</title>
+    <script
+      data-require="p5.js@0.5.7"
+      data-semver="0.5.7"
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"
+    ></script>
+    <script
+      data-require="p5.dom.js@0.5.7"
+      data-semver="0.5.7"
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.dom.min.js"
+    ></script>
+    <!-- <script src="libraries/p5.sound.js"></script> -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="sketch.js"></script>
+    <script src="draggable.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="style.css" rel="stylesheet"></link>
-  <title>PARTICLE.</title>
-  <script data-require="p5.js@0.5.7" data-semver="0.5.7"
-    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
-  <script data-require="p5.dom.js@0.5.7" data-semver="0.5.7"
-    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.dom.min.js"></script>
-  <!-- <script src="libraries/p5.sound.js"></script> -->
-  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-  <script src="sketch.js"></script>
-  <script src="draggable.js"></script>
-</head>
+  <body>
+    <h1>PARTICLE .</h1>
+    <h2>Basic Rules</h2>
+    <p>Players – 2 to 4</p>
 
-<body>
-  <h1>PARTICLE .</h1>
-  <h2>Basic Rules</h2>
-  <p>Players – 2 to 6</p>
+    <p>
+      Objective – Reach the singularity in the center of the board with all
+      seven particles collected. Players collect a particle every time they
+      complete a full cycle around the board, marked by the atom icon.
+    </p>
 
-  <p>Objective – Reach the singularity in the center of the board with all seven particles collected. Players collect a
-    particle every time they complete a full cycle around the board, marked by the atom icon.</p>
+    <p>
+      There are eight chances to acquire particles, not counting collisions.
+    </p>
 
-  <p>There are eight chances to acquire particles, not counting collisions.</p>
+    <p>
+      • Collisions – if two players land on the same space, the one with more
+      mass (collected particles) gets to take a particle from the other player.
+      If the other player has no particles collected, they must start over at
+      the beginning. If neither player has any particles collected, they must
+      both start over at the beginning.
+    </p>
 
-  <p>• Collisions – if two players land on the same space, the one with more mass (collected particles) gets to take a
-    particle from the other player. If the other player has no particles collected, they must start over at the
-    beginning. If neither player has any particles collected, they must both start over at the beginning.</p>
+    <p>
+      • Entanglements – spaces sharing crosshair icons are quantum
+      entanglements, meaning a player can move diagonally between them, to an
+      inner or outer ring. Collisions between players in entanglements will not
+      result in particle loss if the player with less mass (collected particles)
+      moves to an outer ring.
+    </p>
 
-  <p>• Entanglements – spaces sharing crosshair icons are quantum entanglements, meaning a player can move diagonally
-  between them, to an inner or outer ring. Collisions between players in entanglements will not result in particle loss
-  if the player with less mass (collected particles) moves to an outer ring.</p>
-
-  <div class="gameboard"></div>
     <div class="container">
-        <div class="buttons">
-            <div id="spinnerButton"><button>Spinner</button>
-                <p class="spinNumber"> Your spin: <span id="spinNumber"></span></p>
-                <p> Their spin: <span id="spinData"></span></p>
-            </div>
-            <div id="chanceButton"><button>Chance Card</button></div>
-            <p class="chanceCard"> Your Card: <span id="currentCard"></span></p>
-            <p> Their card: <span id="cardData"></span></p>
+      <div class="buttons">
+        <div id="spinnerButton">
+          <button>Spinner</button>
+          <p class="spinNumber">Your Spin: <span id="spinNumber"></span></p>
+          <p>Their Spin: <span id="spinData"></span></p>
         </div>
-        <!-- View chat messages here here -->
-        <div class="chat"></div>
-        <div class="sub-container chat-feed">
-
-            <div class="chat-box" id="chat-box-msgs"></div>
-        <!-- </div> -->
+        <div id="chanceButton"><button>Chance Card</button></div>
+        <p class="chanceCard">Your Card: <span id="currentCard"></span></p>
+        <p>Their Card: <span id="cardData"></span></p>
+      </div>
+      <!-- View chat messages here here -->
+      <div class="chat"></div>
+      <div class="sub-container chat-feed">
+        <div class="chat-box" id="chat-box-msgs"></div>
         <!-- Enter chat messages here -->
         <div class="sub-container chat-input">
-            <input type="text" class="chat-input-name" id="name-input" placeholder="Name" />
-            <input type="text" class="chat-input-msg" id="msg-input" placeholder="Message" />
-            <button id="send-button">Send</button>
-        </div></div>
+          <input
+            type="text"
+            class="chat-input-name"
+            id="name-input"
+            placeholder="Player Name"
+          />
+          <input
+            type="text"
+            class="chat-input-msg"
+            id="msg-input"
+            placeholder="Your Message"
+          />
+          <button id="send-button">Send</button>
+        </div>
+      </div>
     </div>
-  
-  
-</body>
-
+  </body>
 </html>

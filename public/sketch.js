@@ -111,7 +111,7 @@ window.addEventListener("load", function() {
 });
 
 function preload() {
-  img = loadImage("assets/board1.jpg");
+  img = loadImage("assets/board2.jpg");
 }
 
 let img;
@@ -119,6 +119,7 @@ let red;
 let blue;
 let green;
 let yellow;
+let purple;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -128,6 +129,7 @@ function setup() {
   blue = new Draggable(50, 110, 25, 25);
   green = new Draggable(50, 170, 25, 25);
   yellow = new Draggable(50, 230, 25, 25);
+  // purple = new Draggable(50, 230, 25, 25);
 }
 
 function draw() {
@@ -153,6 +155,11 @@ function draw() {
   yellow.update();
   fill(255, 255, 0);
   yellow.show();
+  
+  // purple.over();
+  // purple.update();
+  // fill(purple);
+  // purple.show();
 }
 
 function mousePressed() {
